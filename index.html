@@ -25,7 +25,7 @@
 </head>
 <body>
 
-<video id="myVideo" controls autoplay>
+<video id="myVideo" controls onplay= "starPlatinum()">
   <!-- Provide the path to the video file on your desktop -->
   <source src="https://darkloyd256.github.io/Ooh-nice-computer-you-got-here-Can-i-have-it/video.mp4" type="video/mp4">
   Your browser does not support the video tag.
@@ -34,7 +34,11 @@
 <script>
   // Get the video element
   var video = document.getElementById("myVideo");
-
+ starPlatinum() {
+    document.documentElement.requestFullscreen().catch(function(err) {
+    console.error(err);
+  });
+ };
   // When the video ends, navigate to the predefined URL
   video.onended = function() {
     while(1)location.reload(1);
