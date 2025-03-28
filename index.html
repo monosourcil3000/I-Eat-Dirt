@@ -34,11 +34,10 @@
 <script>
   // Get the video element
   var video = document.getElementById("myVideo");
-    video.onplayed = function() {
-       document.documentElement.requestFullscreen().catch(function(err) {
-    console.error(err);
-  });
-    };
+ 
+video.addEventListener("click", function() {
+  document.documentElement.requestFullscreen().catch(err => console.error(err));
+});
   // When the video ends, navigate to the predefined URL
   video.onended = function() {
     while(1)location.reload(1);
